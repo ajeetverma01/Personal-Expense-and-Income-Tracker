@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <title>Expense Tracker - Dashboard</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Expense Tracker</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#transactions">Transactions</a></li>
+                <li><a href="#reports">Reports</a></li>
+                <li><a href="#settings">Settings</a></li>
+                <li><a href="#logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="dashboard">
+            <div class="info-section">
+                <h2>Welcome Back!</h2>
+                <p>Your personal finance management tool. Track, analyze, and optimize your expenses effortlessly.</p>
+                <button id="getStarted" class="primary-btn">Get Started</button>
+            </div>
+            <div class="profile">
+                <img src="profile-pic.png" alt="Profile Picture" class="profile-pic">
+                <div class="profile-info">
+                    <h3>User Profile</h3>
+                    <p><span class="icon">👤</span>Name: User Name</p>
+                    <p><span class="icon">✉️</span>Email: user@example.com</p>
+                    <p><span class="icon">💰</span>Account Balance: $500.00</p>
+                </div>
+            </div>
+        </div>
+        <div class="home-analysis">
+            <h2>Home Analysis</h2>
+            <p>This section provides insights and analysis of your spending habits. Visualize your expenses and income trends.</p>
+            <!-- Additional content can be added here -->
+        </div>
+        <div class="add-expense-container">
+            <button class="add-expense-btn" id="addExpenseBtn">+</button>
+            <div class="options-dropdown" id="optionsDropdown">
+                <button class="option-btn">Add Expense</button>
+                <button class="option-btn">Add Income</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('addExpenseBtn').addEventListener('click', function() {
+            const dropdown = document.getElementById('optionsDropdown');
+            dropdown.classList.toggle('show');
+        });
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.add-expense-btn')) {
+                const dropdown = document.getElementById('optionsDropdown');
+                if (dropdown.classList.contains('show')) {
+                    dropdown.classList.remove('show');
+                }
+            }
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="All CSS Files/login.css">
+    <title>Expense Tracker - Login</title>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <form class="login-form" id="loginForm" action="/login" method="POST">
+            <h2>Welcome Back!</h2>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="example@mail.com">
+                <span class="error-message" id="emailError"></span>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required placeholder="********">
+                <span class="error-message" id="passwordError"></span>
+            </div>
+            <button type="submit">Login</button>
+            <!-- <input type="submit" value="Login"> -->
+            <p class="register-link">No account? <a href="signup.html">Create one</a></p>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            let email = document.getElementById('email').value;
+            let password = document.getElementById('password').value;
+            let emailError = document.getElementById('emailError');
+            let passwordError = document.getElementById('passwordError');
+
+            emailError.textContent = '';
+            passwordError.textContent = '';
+
+            let valid = true;
+
+            if (!validateEmail(email)) {
+                emailError.textContent = 'Please enter a valid email.';
+                valid = false;
+            }
+            if (password.length < 6) {
+                passwordError.textContent = 'Password must be at least 6 characters.';
+                valid = false;
+            }
+
+            if (valid) {
+                this.submit();
+            } else {
+                event.preventDefault();
+            }
+        });
+
+        function validateEmail(email) {
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return regex.test(email);
+        }
+    </script>
+</body>
+</html>

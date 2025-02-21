@@ -1,0 +1,32 @@
+create the database:
+create database `expense-tracker`;
+
+create the tables:
+
+create table allincome (title varchar(100), category varchar(100), amount int);
+create table allexpenses (title varchar(100), category varchar(100), amount int);
+create table `sign-up` (name varchar(100), email varchar(100), password varchar(100));
+
+
+For inserting data in sign-up table:
+INSERT INTO `sign-up`(`name`, `email`, `password`) VALUES ('Ajeet','av@gmail.com','000000');
+
+
+For inserting data in expense table:
+
+INSERT INTO `allexpenses` (`title`, `category`, `amount`) VALUES ('ate burger', 'food', 350);
+INSERT INTO `allexpenses` (`title`, `category`, `amount`) VALUES ('Bus ticket', 'Transport', 800);
+INSERT INTO `allexpenses` (`title`, `category`, `amount`) VALUES ('Movie', 'Entertainment', 1800);
+INSERT INTO `allexpenses` (`title`, `category`, `amount`) VALUES ('Home rent', 'Utilities', 25000);
+INSERT INTO `allexpenses` (`title`, `category`, `amount`) VALUES ('Medicines', 'Healthcare', 1370);
+INSERT INTO `allexpenses` (`title`, `category`, `amount`) VALUES ('Donations', 'Other', 500);
+
+
+For inserting data in income table:
+
+INSERT INTO `allincome` (`title`, `category`, `amount`) VALUES ('Received My salary', 'Salary', 46390);
+INSERT INTO `allincome` (`title`, `category`, `amount`) VALUES ('Won a lottery', 'Lottery', 3000);
+INSERT INTO `allincome` (`title`, `category`, `amount`) VALUES (' Got the Bonus', 'Bonus', 1100);
+INSERT INTO `allincome` (`title`, `category`, `amount`) VALUES ('Cashback', 'reward', 42);
+INSERT INTO `allincome` (`title`, `category`, `amount`) VALUES ('Scratched a coupan', 'Coupan', 46390);
+INSERT INTO `allincome` (`title`, `category`, `amount`) VALUES ('On the road', 'Other', 100);

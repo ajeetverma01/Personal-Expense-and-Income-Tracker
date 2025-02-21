@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense & Income Tracker</title>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <link rel="stylesheet" href="All CSS Files/get-started.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="nav-link logo-link">
+                <img src="Image (Get-Started Page)/main.jpg" alt="Expense Tracker Logo" class="navbar-logo">
+                <span class="app-name">Expense & Income Tracker</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Back to Home</a>
+            </div>
+            <div class="menu-button" onclick="toggleMenu()">&#9776;</div>
+        </div>
+    </nav>
+
+    <div class="sidebar" id="sidebar">
+        <button class="close-button" onclick="toggleMenu()">×</button>
+        <a href="welcome-page.html" class="sidebar-link">Back to Home</a>
+    </div>
+
+    <div class="container">
+        <div class="logo-container">
+            <img src="Image (Get-Started Page)/main.jpg" alt="Expense Tracker Logo" class="logo">
+        </div>
+        <h1>Get Started with Expense & Income Tracker</h1>
+        <h1 class="element"><span id="element"></span> </h1>
+        <p>Take control of your finances. Easily track your expenses and manage your budget.</p>
+
+        <div class="button-container">
+            <a href="login.html" class="button">
+                <span>Login</span>
+            </a>
+            <a href="signup.html" class="button">
+                <span>Create Account</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="All JavaScript Files/get-started.js"></script>
+</body>
+
+</html>

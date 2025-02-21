@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="All CSS Files/welcome-page.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="Image (Welcome page)/your-logo.png" alt="Expense Tracker Logo" width="30" height="30"
+                class="mr-2">
+            Expense & Income Tracker
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#for-home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#service">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#my-feature">Feature</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#my-review1">Reviews</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about-us">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="faq-for-index.html">FAQ</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Language
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="languageDropdown">
+                        <a class="dropdown-item" href="#">English</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <span id="for-home"></span>
+    <main>
+        <div class="heading">
+            <h1>Simple Way<br>to Manage Personal Finances</h1>
+            <button class="get-started" data-tooltip="Manage your Expenses!" id="service"><a class="startedBtn"
+                    href="get-started.html">Get Started</a></button>
+        </div>
+
+        <div class="sections">
+            <!-- mb4 means adding margin botton -->
+            <h2 class="text-center mb-4" id="feature">Services</h2>
+
+            <!-- section will represent individual cards with icons and images -->
+            <div class="section">
+                <div class="section-content">
+                    <img src="Image (Welcome page)/a3.png" alt="Expense Management" class="section-image">
+                    <p>
+                        <!-- It is a font-awesome's icon -->
+                        <i class="fas fa-dollar-sign"></i>Expense Tracking
+                    </p>
+                </div>
+            </div>
+            <div class="section section1">
+                <div class="section-content">
+                    <p><i class="fas fa-wallet"></i>Expense Budgeting</p>
+                    <img src="Image (Welcome page)/a2.png" alt="Expense Analytics" class="section-image">
+                </div>
+            </div>
+            <div class="section section2">
+                <div class="section-content">
+                    <img src="Image (Welcome page)/a2.png" alt="Expense Analytics" class="section-image">
+                    <p><i class="fas fa-wallet"></i>Expense Budgeting</p>
+                </div>
+            </div>
+            <div class="section">
+                <div class="section-content">
+                    <img src="Image (Welcome page)/a1.png" alt="Expense Discussion" class="section-image">
+                    <p id="my-feature"><i class="bi bi-graph-up"></i>Income Tracking</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- New Features Section -->
+
+        <!-- my-4 means vertical margin to the top and bottom -->
+        <div class="container my-4">
+
+            <h2 class="text-center mb-4">Features</h2>
+            <div class="row">
+
+                <!-- col-md-4: Defines each card's width as one-third of the row on medium (tablet) screens and above. This responsive layout adjusts to fit more or fewer columns depending on screen size. -->
+
+                <div class="col-md-4">
+                    <div class="card mb-4 edit-card">
+                        <img src="Image (Welcome page)/feature1.png" class="card-img-top" alt="Feature 1">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Real-Time Tracking</h5>
+                            <p class="card-text">Keep track of your expenses as they happen. Real-time updates ensure
+                                you never miss a transaction.</p>
+                            <!-- <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#track">Read
+                                More</a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 edit-card">
+                        <img src="Image (Welcome page)/budget.png" class="card-img-top" alt="Feature 2">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Budgeting Tools</h5>
+                            <p class="card-text">Set budgets for different categories and stay on top of your financial
+                                goals.</p>
+                            <!-- <a href="#" class="btn btn-primary btn-sm" data-toggle="modal"
+                                data-target="#budget-tool">Read More</a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 edit-card">
+                        <img src="Image (Welcome page)/feature3.png" class="card-img-top" alt="Feature 3">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Expense Reports</h5>
+                            <p class="card-text">Generate detailed reports to analyze your spending patterns and make
+                                informed decisions.</p>
+                            <!-- <a href="#" class="btn btn-primary btn-sm" data-toggle="modal"
+                                data-target="#expense-reports">Read
+                                More</a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 edit-card">
+                        <img src="Image (Welcome page)/income.png" class="card-img-top" alt="Feature 3">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Income Insights</h5>
+                            <p class="card-text">Categorize and monitor your income to uncover patterns and enhance your
+                                financial decision-making.</p>
+                            <!-- <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#insight">Read
+                                More</a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 edit-card">
+                        <img src="Image (Welcome page)/cloud.png" class="card-img-top" alt="Feature 3">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Cloud Backup</h5>
+                            <p class="card-text">Automatically back up data to the cloud to prevent loss and allow easy
+                                recovery when needed.</p>
+                            <!-- <a href="#" class="btn btn-primary btn-sm" data-toggle="modal"
+                                data-target="#cloud-backup">Read More</a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 edit-card">
+                        <img src="Image (Welcome page)/User-Friendly Interface.png" class="card-img-top"
+                            alt="Feature 3">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">User-Friendly Interface</h5>
+                            <p class="card-text">Intuitive design and navigation, making it simple for users of all
+                                levels to track and manage their expenses effectively.</p>
+                            <!-- <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#ui">Read
+                                More</a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 edit-card">
+                        <img src="Image (Welcome page)/feature4.png" class="card-img-top" alt="Feature 3">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Multiple Devices</h5>
+                            <p class="card-text">Safely synchronize across devices with Bank standard security.</p>
+                            <!-- <a href="#" class="btn btn-primary btn-sm" data-toggle="modal"
+                                data-target="#multiple-devices">Read More</a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 edit-card">
+                        <img src="Image (Welcome page)/feature5.png" class="card-img-top" alt="Feature 3">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Category Management</h5>
+                            <p class="card-text">Enable u text-centersers to categorize expenses for clearer insights
+                                into their
+                                spending habits.</p>
+                            <!-- <a href="#" class="btn btn-primary btn-sm" data-toggle="modal"
+                                data-target="#category-management">Read More</a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 edit-card">
+                        <img src="Image (Welcome page)/feature6.png" class="card-img-top" alt="Feature 3">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Secure Authentication</h5>
+                            <p class="card-text">Utilize advanced security features authentication to protect user data.
+                            </p>
+                            <!-- <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#security"
+                                id="my-review">Read
+                                More</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- When click on read more -->
+
+
+
+
+
+
+<!-- 
+        <div class="modal fade" id="track" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Real-Time Tracking</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="Image (Welcome page)/feature1.png" alt="Sample Image" class="img-fluid mb-1">
+                        <p>Our real-time tracking feature lets you log expenses and income instantly. Get immediate
+                            visibility into your finances, helping you make informed decisions on the go. Stay on top of
+                            your budget with instant updates and alerts for complete financial control!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="budget-tool" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Budgeting Tools</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="Image (Welcome page)/budget.png" alt="Sample Image" class="img-fluid mb-1">
+                        <p>Our budgeting tools empower you to take control of your finances effortlessly. Create
+                            personalized budgets, track your spending, and set financial goals with ease. With visual
+                            insights and detailed reports, you can identify trends and make informed decisions to
+                            optimize your budget. Start planning for a brighter financial future today!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="expense-reports" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Expense Reports</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="Image (Welcome page)/feature3.png" alt="Sample Image" class="img-fluid mb-1">
+                        <p>Our expense reports feature provides detailed insights into your spending habits. Easily
+                            generate reports that categorize your expenses, helping you identify patterns and areas for
+                            improvement. With customizable date ranges and visual charts, you can track your progress
+                            over time and make informed financial decisions. Gain clarity on where your money goes and
+                            enhance your budgeting strategy with comprehensive expense reports!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="insight" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Income Insights</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="Image (Welcome page)/income.png" alt="Sample Image" class="img-fluid mb-1">
+                        <p>Unlock the power of your earnings with our Income Insights feature. Get a clear view of your
+                            income streams, track trends over time, and analyze fluctuations. With easy-to-read charts
+                            and summaries, you can understand how your income affects your overall financial health.
+                            Make informed decisions to maximize your earnings and plan for future growth. Take charge of
+                            your finances with actionable insights into your income!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="cloud-backup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Cloud Backup</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="Image (Welcome page)/cloud.png" alt="Sample Image" class="img-fluid mb-1">
+                        <p>Never worry about losing your financial data with our Cloud Backup feature. Automatically
+                            store and secure your expense and income information in the cloud, ensuring it's always
+                            accessible and protected. Enjoy peace of mind knowing that your data is safe from device
+                            failures or accidental deletions. Easily restore your information anytime, anywhere, and
+                            keep your financial records safe and sound!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="ui" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">User-Friendly Interface</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="Image (Welcome page)/User-Friendly Interface.png" alt="Sample Image"
+                            class="img-fluid mb-1">
+                        <p>Our web app features a user-friendly interface designed for effortless navigation. With
+                            intuitive layouts and clear icons, you can quickly access all essential functions without
+                            any hassle. Whether you're tracking expenses, generating reports, or setting budgets,
+                            everything is just a few clicks away. Enjoy a seamless experience that makes managing your
+                            finances simple and enjoyable, regardless of your tech-savviness!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="multiple-devices" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Multiple Devices</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="Image (Welcome page)/feature4.png" alt="Sample Image" class="img-fluid mb-1">
+                        <p>Access your financial information anytime, anywhere, with our multiple device support.
+                            Whether you’re on your smartphone, tablet, or desktop, your data is synchronized in
+                            real-time across all devices. This seamless experience allows you to track expenses, view
+                            reports, and manage budgets on the go. Enjoy the flexibility and convenience of staying
+                            connected to your finances, no matter where you are!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="category-management" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Category Management</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="Image (Welcome page)/feature5.png" alt="Sample Image" class="img-fluid mb-1">
+                        <p>Effortlessly manage your finances with our Category Management feature. Organize your
+                            expenses and income into customizable categories, making it easy to track where your money
+                            goes. Gain insights into spending habits by viewing detailed reports for each category,
+                            helping you identify areas for improvement. With flexible options to create, edit, or delete
+                            categories, you can tailor your financial tracking to suit your lifestyle. Take control of
+                            your budget and make informed decisions with clear category visibility!
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="security" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Secure Authentication</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="Image (Welcome page)/feature6.png" alt="Sample Image" class="img-fluid mb-1">
+                        <p>Protect your financial data with our Secure Authentication feature. We use advanced
+                            encryption and multi-factor authentication to ensure that your information remains safe and
+                            accessible only to you. Enjoy peace of mind knowing that your account is secure, allowing
+                            you to focus on managing your finances without worry. With secure authentication, you can
+                            trust that your sensitive data is in good hands!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+ 
+
+
+        <!-- reviews -->
+
+        <!-- my-5 Adds a vertical margin to the top and bottom -->
+        <div class="container my-5" id="my-review1">
+            <h2 class="text-center mb-4">Customer Reviews</h2>
+            <div class="row">
+
+                <!-- md-4 means responsive layout -->
+                <div class="col-md-4">
+                    <div class="card card-review">
+                        <div class="card-body">
+                            <div class="review-header">
+                                <h5 class="card-title">Ajeet Verma <span class="rating"><i class="fas fa-star"></i> <i
+                                            class="fas fa-star"></i> <i class="fas fa-star"></i> <i
+                                            class="fas fa-star"></i> <i class="fas fa-star"></i></span></h5>
+                            </div>
+                            <div class="review-meta">Posted on: Oct 18, 2024 | Location: Gonda, India</div>
+                            <p class="card-text">"Very easy to use and navigate. Highly recommended!"</p>
+                            <footer class="blockquote-footer">Developer</footer>
+                            <div class="action-buttons">
+                                <button class="action-button helpful-btn"><i class="fas fa-thumbs-up"></i>
+                                    Helpful</button>
+                                <button class="action-button report-btn"><i class="fas fa-flag"></i> Report</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-review">
+                        <div class="card-body">
+                            <div class="review-header">
+                                <h5 class="card-title">John Doe<span class="rating"><i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i
+                                            class="fas fa-star"></i> <i class="fas fa-star"></i></span></h5>
+                            </div>
+                            <div class="review-meta">Posted on: Oct 11, 2024 | Location: Gonda</div>
+                            <p class="card-text">"Finance Made Simple! Tracking my spending has never been easier!""</p>
+                            <footer class="blockquote-footer">Verified User</footer>
+                            <div class="action-buttons">
+                                <button class="action-button helpful-btn"><i class="fas fa-thumbs-up"></i>
+                                    Helpful</button>
+                                <button class="action-button report-btn"><i class="fas fa-flag"></i> Report</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-review">
+                        <div class="card-body">
+                            <div class="review-header">
+                                <h5 class="card-title">Aryan Singh<span class="rating"><i class="fas fa-star"></i> <i
+                                            class="fas fa-star"></i> <i class="fas fa-star"></i> <i
+                                            class="fas fa-star"></i> <i class="fas fa-star-half-alt"></i></span></h5>
+                            </div>
+                            <div class="review-meta">Posted on: Oct 12, 2024 | Location: Gonda</div>
+                            <p class="card-text">"I feel safe knowing my financial data is secure. Plus, the app is easy
+                                to navigate."</p>
+                            <footer class="blockquote-footer">Verified User</footer>
+                            <div class="action-buttons">
+                                <button class="action-button helpful-btn"><i class="fas fa-thumbs-up"></i>
+                                    Helpful</button>
+                                <button class="action-button report-btn"><i class="fas fa-flag"></i> Report</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+    </main>
+
+    <div class="footer-about text-center" id="about-us">
+        <h2 class="footer-title">About Us</h2>
+        <p class="footer-text">
+            Our personal expense and income tracker helps you manage your finances effectively. With intuitive features,
+            you can easily track your spending and savings.
+        </p>
+        <p class="footer-text">
+            For more information, explore our website or follow us on <a href="#" class="footer-link">social media</a>.
+        </p>
+        <p class="footer-text">&copy; 2024 [Ajeet Verma] Expense & Income Tracker. All rights reserved.</p>
+    </div>
+
+    <script src="All JavaScript Files/welcome-page.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

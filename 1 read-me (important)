@@ -1,0 +1,24 @@
+To start the project, Run the (index.html) file by this command in terminal: 'node server.js'
+Access the page on http://localhost:9000
+
+Make sure the Apache and MySql modules are active in XAMPP server.
+Make sure that the databases and tables are available (Queries are available in a file : Queries).
+
+You have to install the following packages:
+1. express  (npm install express)
+2. mysql
+3. body-parser
+4. path  //optional
+
+
+
+Technologies used:
+1. HTML
+2. CSS
+3. JavaScript
+4. Ajax
+5. Bootstrap
+6. Typed.JS
+7. Node.JS
+8. Express.JS
+9. mysql

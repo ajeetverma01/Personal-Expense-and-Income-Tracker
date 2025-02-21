@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="All CSS Files/signup.css">
+    <title>Expense Tracker - Create Account</title>
+</head>
+
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <form class="register-form" id="registerForm" method="POST" action="/">
+            <h2>Create Account</h2>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="name" required placeholder="Choose a username">
+                <span class="error-message" id="usernameError"></span>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="example@mail.com">
+                <span class="error-message" id="emailError"></span>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required placeholder="********">
+                <span class="error-message" id="passwordError"></span>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="********">
+                <span class="error-message" id="confirmPasswordError"></span>
+            </div>
+            <button type="submit">Create Account</button>
+            <!-- <input type="submit" value="Create Account"> -->
+            <p class="login-link">Already have an account? <a href="login.html">Login here</a></p>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the form from submitting
+            let username = document.getElementById('username').value;
+            let email = document.getElementById('email').value;
+            let password = document.getElementById('password').value;
+            let confirmPassword = document.getElementById('confirmPassword').value;
+            let usernameError = document.getElementById('usernameError');
+            let emailError = document.getElementById('emailError');
+            let passwordError = document.getElementById('passwordError');
+            let confirmPasswordError = document.getElementById('confirmPasswordError');
+
+            // Clear previous error messages
+            usernameError.textContent = '';
+            emailError.textContent = '';
+            passwordError.textContent = '';
+            confirmPasswordError.textContent = '';
+
+            // Validate inputs
+            let isValid = true;
+
+            if (username.trim() === '') {
+                usernameError.textContent = 'Username is required.';
+                isValid = false;
+            }
+            if (!validateEmail(email)) {
+                emailError.textContent = 'Please enter a valid email.';
+                isValid = false;
+            }
+            if (password.length < 6) {
+                passwordError.textContent = 'Password must be at least 6 characters.';
+                isValid = false;
+            }
+            if (password !== confirmPassword) {
+                confirmPasswordError.textContent = 'Passwords do not match.';
+                isValid = false;
+            }
+
+            // Only submit if valid
+            if (isValid) {
+                // Submit the form data without the confirm password
+                this.submit(); // Optionally you could use AJAX to submit data here
+            }
+        });
+
+        function validateEmail(email) {
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return regex.test(email);
+        }
+    </script>
+</body>
+
+</html>

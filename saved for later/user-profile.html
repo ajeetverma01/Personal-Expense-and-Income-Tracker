@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        .dashboard {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .info-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .info-section h2 {
+            color: #00c6ff;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            background: #1f1f1f;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .profile-pic {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .profile-info {
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard">
+        <div class="info-section">
+            <h2>Welcome Back!</h2>
+            <p>Your personal finance management tool. Track, analyze, and optimize your expenses effortlessly.</p>
+            <button id="getStarted">Get Started</button>
+        </div>
+        <div class="profile">
+            <img src="profile-pic.png" alt="Profile Picture" class="profile-pic">
+            <div class="profile-info">
+                <h3>User Profile</h3>
+                <p><span class="icon">👤</span>Name: User Name</p>
+                <p><span class="icon">✉️</span>Email: user@example.com</p>
+                <p><span class="icon">💰</span>Account Balance: $500.00</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

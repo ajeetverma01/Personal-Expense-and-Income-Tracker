@@ -1,0 +1,153 @@
+:root {
+    --background-color: #0d0d0d;
+    --text-color: #000000;
+    --header-color: #80cbc4;
+    --button-gradient-start: #00796b;
+    --button-gradient-end: #004d40;
+    --form-background: #1c1c1c;
+    --input-background: #302f2f;
+    --input-border-color: #555;
+    --input-hover-background:#383434;
+    --input-focus-border: #00796b;
+    --overlay-background: rgba(0, 0, 0, 0.8);
+    --record-background: #2c3e50;
+    --record-border-color: #444;
+}
+
+
+button {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, var(--button-gradient-start), var(--button-gradient-end));
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s, transform 0.2s, box-shadow 0.3s;
+    margin: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+button:hover {
+    background: linear-gradient(135deg, var(--button-gradient-end), var(--button-gradient-start));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+.form-popup,
+.records-popup {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    background-color: var(--form-background);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    z-index: 100;
+    border-radius: 15px;
+    width: 400px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.form-popup:hover,
+.records-popup:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9);
+}
+
+h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--header-color);
+    font-size: 1.8em;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container label {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.form-container input,
+.form-container select {
+    margin: 10px 0;
+    padding: 12px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 5px;
+    background-color: var(--input-background);
+    color: #f5f5f5;
+    font-size: 14px;
+    transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
+}
+
+.form-container input:hover,
+.form-container select:hover {
+    border-color: var(--input-focus-border);
+    background-color: var(--input-hover-background);
+}
+
+.form-container input:focus,
+.form-container select:focus {
+    border-color: var(--input-focus-border);
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 121, 107, 0.7);
+    background-color: #3a3f50;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--overlay-background);
+    z-index: 50;
+}
+
+.records-list {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 10px;
+    color: #fff;
+    padding: 10px;
+    border: 1px solid var(--record-border-color);
+    border-radius: 5px;
+    background-color: var(--record-background);
+}
+
+.records-list div {
+    padding: 10px;
+    border-bottom: 1px solid var(--record-border-color);
+    transition: all 0.3s;
+}
+
+.records-list div:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.records-list div:last-child {
+    border-bottom: none;
+}
+
+@media (max-width: 600px) {
+    .form-popup,
+    .records-popup {
+        width: 90%;
+        padding: 20px;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 10px;
+    }
+}

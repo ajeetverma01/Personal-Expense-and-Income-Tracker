@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remaining Balance</title>
+    <link rel="stylesheet" href="All CSS Files/balance.css"> <!-- Link to your custom CSS -->
+</head>
+<body>
+    <h1>Remaining Balance</h1>
+    <div id="balanceContainer">
+        <p>Total Income: <span id="totalIncome">0.00</span></p>
+        <p>Total Expense: <span id="totalExpense">0.00</span></p>
+        <h2>Remaining Balance: <span id="remainingBalance">0.00</span></h2>
+    </div>
+
+    <script>
+        // Fetch total income and expense from the server, then calculate the remaining balance
+        fetch('/balance')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('totalIncome').innerText = data.totalIncome.toFixed(2);
+                document.getElementById('totalExpense').innerText = data.totalExpense.toFixed(2);
+                document.getElementById('remainingBalance').innerText = (data.totalIncome - data.totalExpense).toFixed(2);
+            })
+            .catch(error => console.error('Error fetching balance data:', error));
+    </script>
+</body>
+</html>
