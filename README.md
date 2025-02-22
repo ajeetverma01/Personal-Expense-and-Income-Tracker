@@ -25,13 +25,13 @@ This is a **web-based application** designed to help users **track, manage, and 
 ### Steps to Run the Project
 1. Clone the repository:
    ```sh
-   git clone https://github.com/ajeetverma01/personal-expense-tracker.git
-   cd personal-expense-tracker
+   git clone https://github.com/ajeetverma01/Personal-Expense-and-Income-Tracker.git
+   cd Personal-Expense-and-Income-Tracker
    ```
 
 2. Install dependencies:
    ```sh
-   npm install express mysql body-parser path
+   npm install
    ```
 
 3. Start the server:
@@ -47,5 +47,5 @@ For any queries or collaboration, feel free to reach out:
 - **GitHub:** [Ajeet Verma](https://github.com/ajeetverma01)
 - **LinkedIn:** [Ajeet Verma](https://www.linkedin.com/in/ajeetverma01/)
 - **HackerRank:** [Ajeet Verma](https://www.hackerrank.com/ajeetverma01)
-- **Email:** ajeetverma@example.com
+- **Email:**av401402@gmail.com
 
