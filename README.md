@@ -47,5 +47,5 @@ For any queries or collaboration, feel free to reach out:
 - **GitHub:** [Ajeet Verma](https://github.com/ajeetverma01)
 - **LinkedIn:** [Ajeet Verma](https://www.linkedin.com/in/ajeetverma01/)
 - **HackerRank:** [Ajeet Verma](https://www.hackerrank.com/ajeetverma01)
-- **Email:**av401402@gmail.com
+- **Email:** av401402@gmail.com
 
