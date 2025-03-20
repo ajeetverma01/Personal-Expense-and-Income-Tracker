@@ -2,11 +2,18 @@ let conn = require('./connection');
 let express = require("express");
 let bodyParser = require('body-parser');
 const path = require('path');
-let app = express();
+let session = require('express-session');
 
-// app.use(bodyParser.json());
+let app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Initialize session
+app.use(session({
+    secret: 'your-secret-key', // Change this to a secure key
+    resave: false,
+    saveUninitialized: true
+}));
 
 conn.connect((error) => {
     if (error) {
@@ -14,46 +21,38 @@ conn.connect((error) => {
         return;
     }
     console.log('Connected to MySQL Database.');
-})
+});
 
-
-// Inserting the data into the 'sign-up' table from the sign-up from.
+// ✅ **Sign-up Route (Inserts User into DB)**
 app.post("/", (req, res) => {
-    let name = req.body.name;
-    let email = req.body.email;
-    let password = req.body.password;
+    let { name, email, password } = req.body;
 
     let sql = "INSERT INTO `sign-up` (name, email, password) VALUES (?, ?, ?)";
-
+    
     conn.query(sql, [name, email, password], function (error, result) {
         if (error) {
             console.error(error);
             return res.status(500).send('An error occurred while inserting the data.');
         }
 
+        let insertedId = result.insertId; // Get the user ID
+
+        console.log("Inserted ID:", insertedId); // ✅ **Stores user ID**
+
         res.send(`
             <script>
-                alert('Account created successfully!');
+                alert('Account created successfully! Your ID is: ${insertedId}');
                 window.history.back(); 
             </script>
         `);
     });
 });
 
-
-
-
-
-
-// Opening the dashboard page if the email and password is true from 'sign-up' table
+// ✅ **Login Route (Retrieves User ID)**
 app.post("/login", (req, res) => {
-    let email = req.body.email;
-    let password = req.body.password;
+    let { email, password } = req.body;
 
-    console.log('Email:', email);
-    console.log('Password:', password);
-
-    let sql = "SELECT * FROM `sign-up` WHERE email = ? AND password = ?";
+    let sql = "SELECT id, name, email FROM `sign-up` WHERE email = ? AND password = ?";
 
     conn.query(sql, [email, password], function (error, results) {
         if (error) {
@@ -61,14 +60,19 @@ app.post("/login", (req, res) => {
             return res.status(500).send('An error occurred while logging in.');
         }
 
-
         if (results.length > 0) {
-            res.redirect('/dashboard.html'); // Opening the dashboard page
+            let user = results[0];
+
+            req.session.userId = user.id; // ✅ **Store user ID in session**
+            req.session.userName = user.name;
+
+            console.log("User Logged In - ID:", user.id, "Name:", user.name);
+
+            res.redirect('/dashboard.html'); // ✅ **Redirect to dashboard**
         } else {
             res.send(`
                 <script>
                     alert('Invalid email or password');
-                    // Go back to the previous page
                     window.history.back(); 
                 </script>
             `);
@@ -76,17 +80,18 @@ app.post("/login", (req, res) => {
     });
 });
 
-
-
-// Inserting data from dashboard's forms into the allexpenses table.
+// ✅ **Insert Expense (Uses Session ID)**
 app.post("/expense", (req, res) => {
-    let title = req.body.title;
-    let category = req.body.category;
-    let amount = req.body.amount;
+    if (!req.session.userId) {
+        return res.status(403).send("Unauthorized: Please log in.");
+    }
 
-    let sql = "INSERT INTO allexpenses (title, category, amount) VALUES (?, ?, ?)";
+    let { title, category, amount } = req.body;
+    let userId = req.session.userId; // ✅ **Get user ID from session**
 
-    conn.query(sql, [title, category, amount], function (error, result) {
+    let sql = "INSERT INTO allexpenses (user_id, title, category, amount) VALUES (?, ?, ?, ?)";
+
+    conn.query(sql, [userId, title, category, amount], function (error, result) {
         if (error) {
             console.error(error);
             return res.status(500).send('An error occurred while inserting the data.');
@@ -95,137 +100,132 @@ app.post("/expense", (req, res) => {
         res.send(`
             <script>
                 alert('Expense added successfully!');
-                // Go back to the previous page
                 window.history.back(); 
             </script>
         `);
     });
 });
 
-
-// Inserting data from dashboard's forms into the allincome table.
+// ✅ **Insert Income (Uses Session ID)**
 app.post("/income", (req, res) => {
-    let title = req.body.title;
-    let category = req.body.category;
-    let amount = req.body.amount;
+    if (!req.session.userId) {
+        return res.status(403).send("Unauthorized: Please log in.");
+    }
 
-    let sql = "INSERT INTO allincome (title, category, amount) VALUES (?, ?, ?)";
+    let { title, category, amount } = req.body;
+    let userId = req.session.userId; // ✅ **Get user ID from session**
 
-    conn.query(sql, [title, category, amount], function (error, result) {
+    let sql = "INSERT INTO allincome (user_id, title, category, amount) VALUES (?, ?, ?, ?)";
+
+    conn.query(sql, [userId, title, category, amount], function (error, result) {
         if (error) {
             console.error(error);
             return res.status(500).send('An error occurred while inserting the data.');
         }
+
         res.send(`
             <script>
                 alert('Income added successfully!');
-                // Go back to the previous page
                 window.history.back(); 
             </script>
         `);
     });
 });
 
-
-
-// To show data on the dashboard's cards
-
-// Route to get the total expense
+// ✅ **Fetch Total Expenses for Logged-in User**
 app.get("/totalExpense", (req, res) => {
-    let sql = "SELECT SUM(amount) AS totalExpense FROM allexpenses";
-    conn.query(sql, function (error, results) {
+    if (!req.session.userId) {
+        return res.status(403).send("Unauthorized: Please log in.");
+    }
+
+    let sql = "SELECT SUM(amount) AS totalExpense FROM allexpenses WHERE user_id = ?";
+    
+    conn.query(sql, [req.session.userId], function (error, results) {
         if (error) {
             console.error("Error fetching total expense:", error);
             return res.status(500).send('An error occurred while fetching the total expense.');
         }
-        console.log("Total Expense:", results[0].totalExpense);
 
-        // Send the total expense as JSON to the client
         res.json({ totalExpense: results[0].totalExpense || 0 });
     });
 });
 
-
-// Route to get the total income
+// ✅ **Fetch Total Income for Logged-in User**
 app.get("/totalIncome", (req, res) => {
-    let sql = "SELECT SUM(amount) AS totalIncome FROM allincome";
-    conn.query(sql, function (error, results) {
+    if (!req.session.userId) {
+        return res.status(403).send("Unauthorized: Please log in.");
+    }
+
+    let sql = "SELECT SUM(amount) AS totalIncome FROM allincome WHERE user_id = ?";
+    
+    conn.query(sql, [req.session.userId], function (error, results) {
         if (error) {
             console.error("Error fetching total income:", error);
             return res.status(500).send('An error occurred while fetching the total income.');
         }
-        console.log("Total Income:", results[0].totalIncome);
 
-        // Send the total expense as JSON to the client
         res.json({ totalIncome: results[0].totalIncome || 0 });
     });
 });
 
-
-
-// Fetch all expenses
+// ✅ **Fetch All Expenses for Logged-in User**
 app.get('/allExpenses', (req, res) => {
-    const sql = "SELECT title, category, amount FROM allexpenses";
-    conn.query(sql, (error, results) => {
+    if (!req.session.userId) {
+        return res.status(403).send("Unauthorized: Please log in.");
+    }
+
+    let sql = "SELECT title, category, amount FROM allexpenses WHERE user_id = ?";
+
+    conn.query(sql, [req.session.userId], (error, results) => {
         if (error) {
             console.error(error);
             return res.status(500).json({ error: 'Error fetching expenses data.' });
         }
-        // res.json() is a method used to send a JSON-formatted response from the server to the client.
         res.json(results);
     });
 });
 
-// Fetch all income
+// ✅ **Fetch All Income for Logged-in User**
 app.get('/allIncome', (req, res) => {
-    const sql = "SELECT title, category, amount FROM allincome";
-    conn.query(sql, (error, results) => {
+    if (!req.session.userId) {
+        return res.status(403).send("Unauthorized: Please log in.");
+    }
+
+    let sql = "SELECT title, category, amount FROM allincome WHERE user_id = ?";
+
+    conn.query(sql, [req.session.userId], (error, results) => {
         if (error) {
             console.error(error);
             return res.status(500).json({ error: 'Error fetching income data.' });
         }
-
-        // res.json() is a method used to send a JSON-formatted response from the server to the client.
         res.json(results);
     });
 });
 
-
-// Route to calculate and return the balance data
+// ✅ **Fetch Balance for Logged-in User**
 app.get('/balance', (req, res) => {
-    const totalIncomeQuery = "SELECT SUM(amount) AS totalIncome FROM allincome";
-    const totalExpenseQuery = "SELECT SUM(amount) AS totalExpense FROM allexpenses";
+    if (!req.session.userId) {
+        return res.status(403).send("Unauthorized: Please log in.");
+    }
 
-    conn.query(totalIncomeQuery, (incomeError, incomeResults) => {
-        if (incomeError) {
-            console.error(incomeError);
-            return res.status(500).json({ error: 'Error fetching total income data.' });
-        }
-        const totalIncome = incomeResults[0].totalIncome || 0;
+    const totalIncomeQuery = "SELECT SUM(amount) AS totalIncome FROM allincome WHERE user_id = ?";
+    const totalExpenseQuery = "SELECT SUM(amount) AS totalExpense FROM allexpenses WHERE user_id = ?";
 
-        conn.query(totalExpenseQuery, (expenseError, expenseResults) => {
-            if (expenseError) {
-                console.error(expenseError);
-                return res.status(500).json({ error: 'Error fetching total expense data.' });
-            }
-            const totalExpense = expenseResults[0].totalExpense || 0;
+    conn.query(totalIncomeQuery, [req.session.userId], (incomeError, incomeResults) => {
+        if (incomeError) return res.status(500).json({ error: 'Error fetching total income data.' });
 
-            // Send the data as JSON
-            // res.json() is a method used to send a JSON-formatted response from the server to the client.
+        conn.query(totalExpenseQuery, [req.session.userId], (expenseError, expenseResults) => {
+            if (expenseError) return res.status(500).json({ error: 'Error fetching total expense data.' });
+
             res.json({
-                totalIncome: totalIncome,
-                totalExpense: totalExpense
+                totalIncome: incomeResults[0].totalIncome || 0,
+                totalExpense: expenseResults[0].totalExpense || 0
             });
         });
     });
 });
 
-
-
-// Running/starting the server at the provided port number
+// Start the server
 app.listen(8000, () => {
     console.log("Server is running on port 8000");
 });
-
-
-// https://6nhtql8t-9000.inc1.devtunnels.ms/
