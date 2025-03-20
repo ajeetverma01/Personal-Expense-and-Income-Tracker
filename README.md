@@ -38,6 +38,10 @@ This is a **web-based application** designed to help users **track, manage, and 
    ```sh
    node server.js
    ```
+   or
+    ```sh
+   npm run dev
+   ```
 
 4. Open your browser and go to:
    **[http://localhost:8000](http://localhost:8000)**
