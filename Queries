@@ -1,3 +1,5 @@
+Note: This is not the sql file. You have to copy and paste these queries to execute.
+
 create the database:
 create database `expense-tracker`;
 
