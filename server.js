@@ -34,12 +34,12 @@ app.post("/", (req, res) => {
         res.send(`
             <script>
                 alert('Account created successfully!');
-                // Go back to the previous page
                 window.history.back(); 
             </script>
         `);
     });
 });
+
 
 
 
