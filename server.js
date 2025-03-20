@@ -10,7 +10,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Initialize session
 app.use(session({
-    secret: 'your-secret-key', // Change this to a secure key
+    secret: 'your-secret-key',
     resave: false,
     saveUninitialized: true
 }));
@@ -23,7 +23,7 @@ conn.connect((error) => {
     console.log('Connected to MySQL Database.');
 });
 
-// ✅ **Sign-up Route (Inserts User into DB)**
+// Sign-up Route (Inserts User into DB)
 app.post("/", (req, res) => {
     let { name, email, password } = req.body;
 
@@ -35,9 +35,9 @@ app.post("/", (req, res) => {
             return res.status(500).send('An error occurred while inserting the data.');
         }
 
-        let insertedId = result.insertId; // Get the user ID
+        let insertedId = result.insertId;
 
-        console.log("Inserted ID:", insertedId); // ✅ **Stores user ID**
+        console.log("Inserted ID:", insertedId);
 
         res.send(`
             <script>
@@ -48,7 +48,7 @@ app.post("/", (req, res) => {
     });
 });
 
-// ✅ **Login Route (Retrieves User ID)**
+// Login Route (Retrieves User ID)
 app.post("/login", (req, res) => {
     let { email, password } = req.body;
 
@@ -63,12 +63,12 @@ app.post("/login", (req, res) => {
         if (results.length > 0) {
             let user = results[0];
 
-            req.session.userId = user.id; // ✅ **Store user ID in session**
+            req.session.userId = user.id;
             req.session.userName = user.name;
 
             console.log("User Logged In - ID:", user.id, "Name:", user.name);
 
-            res.redirect('/dashboard.html'); // ✅ **Redirect to dashboard**
+            res.redirect('/dashboard.html');
         } else {
             res.send(`
                 <script>
@@ -80,14 +80,14 @@ app.post("/login", (req, res) => {
     });
 });
 
-// ✅ **Insert Expense (Uses Session ID)**
+// Insert Expense (Uses Session ID)
 app.post("/expense", (req, res) => {
     if (!req.session.userId) {
         return res.status(403).send("Unauthorized: Please log in.");
     }
 
     let { title, category, amount } = req.body;
-    let userId = req.session.userId; // ✅ **Get user ID from session**
+    let userId = req.session.userId;
 
     let sql = "INSERT INTO allexpenses (user_id, title, category, amount) VALUES (?, ?, ?, ?)";
 
@@ -106,14 +106,14 @@ app.post("/expense", (req, res) => {
     });
 });
 
-// ✅ **Insert Income (Uses Session ID)**
+// Insert Income (Uses Session ID)
 app.post("/income", (req, res) => {
     if (!req.session.userId) {
         return res.status(403).send("Unauthorized: Please log in.");
     }
 
     let { title, category, amount } = req.body;
-    let userId = req.session.userId; // ✅ **Get user ID from session**
+    let userId = req.session.userId;
 
     let sql = "INSERT INTO allincome (user_id, title, category, amount) VALUES (?, ?, ?, ?)";
 
@@ -132,7 +132,7 @@ app.post("/income", (req, res) => {
     });
 });
 
-// ✅ **Fetch Total Expenses for Logged-in User**
+// Fetch Total Expenses for Logged-in User
 app.get("/totalExpense", (req, res) => {
     if (!req.session.userId) {
         return res.status(403).send("Unauthorized: Please log in.");
@@ -150,7 +150,7 @@ app.get("/totalExpense", (req, res) => {
     });
 });
 
-// ✅ **Fetch Total Income for Logged-in User**
+// Fetch Total Income for Logged-in User
 app.get("/totalIncome", (req, res) => {
     if (!req.session.userId) {
         return res.status(403).send("Unauthorized: Please log in.");
@@ -168,7 +168,7 @@ app.get("/totalIncome", (req, res) => {
     });
 });
 
-// ✅ **Fetch All Expenses for Logged-in User**
+// Fetch All Expenses for Logged-in User
 app.get('/allExpenses', (req, res) => {
     if (!req.session.userId) {
         return res.status(403).send("Unauthorized: Please log in.");
@@ -185,7 +185,7 @@ app.get('/allExpenses', (req, res) => {
     });
 });
 
-// ✅ **Fetch All Income for Logged-in User**
+// Fetch All Income for Logged-in User
 app.get('/allIncome', (req, res) => {
     if (!req.session.userId) {
         return res.status(403).send("Unauthorized: Please log in.");
@@ -202,7 +202,7 @@ app.get('/allIncome', (req, res) => {
     });
 });
 
-// ✅ **Fetch Balance for Logged-in User**
+// Fetch Balance for Logged-in User
 app.get('/balance', (req, res) => {
     if (!req.session.userId) {
         return res.status(403).send("Unauthorized: Please log in.");
