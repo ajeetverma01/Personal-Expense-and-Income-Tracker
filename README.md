@@ -40,7 +40,7 @@ This is a **web-based application** designed to help users **track, manage, and 
    ```
 
 4. Open your browser and go to:
-   **[http://localhost:9000](http://localhost:9000)**
+   **[http://localhost:8000](http://localhost:8000)**
 
 ## 📧 Contact
 For any queries or collaboration, feel free to reach out:
