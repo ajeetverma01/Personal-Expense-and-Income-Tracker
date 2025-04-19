@@ -7,7 +7,7 @@ This is a **web-based application** designed to help users **track, manage, and 
 - Add, track, and manage income & expenses
 - User-friendly and responsive design
 - Secure data storage using MySQL
-- Dynamic UI enhancements with **Ajax & Typed.js**
+- Dynamic UI enhancements with **Ajax, jQuery & Typed.js**
 - Real-time updates and smooth experience
 
 ## 🛠️ Technologies Used
